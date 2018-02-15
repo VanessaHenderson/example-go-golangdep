@@ -1,3 +1,5 @@
 language: go
+before_install : 
+  - go get github.com/golang/dep/...
 addons:
   srcclr: true
