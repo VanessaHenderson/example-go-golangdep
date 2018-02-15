@@ -12,9 +12,9 @@ func Foo() {
     client := github.NewClient(nil)
 
     // list public repositories for org "github"
-    opt := &github.RepositoryListByOrgOptions{Type: "public"}
-    repos, _, err := client.Repositories.List(context.Background(), "github", opt)
-
+    opt := &RepositoryListByOrgOptions{"forks", ListOptions{Page: 2}}
+	repos, _, err := client.Repositories.ListByOrg(context.Background(), "o", opt)
+    
     fmt.Println("Hello from sub! Num repos: " + strconv.Itoa(len(repos)))
 
     privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
