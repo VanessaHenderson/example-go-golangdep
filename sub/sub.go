@@ -13,7 +13,7 @@ func Foo() {
 
     // list public repositories for org "github"
     opt := &github.RepositoryListByOrgOptions{Type: "public"}
-    repos, _, _ := client.Repositories.ListByOrg(context.Background(), "github", opt)
+    repos, _, err := client.Repositories.List(context.Background(), "github", opt)
 
     fmt.Println("Hello from sub! Num repos: " + strconv.Itoa(len(repos)))
 
