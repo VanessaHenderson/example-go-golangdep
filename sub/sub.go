@@ -11,20 +11,20 @@ func Foo() {
     client := github.NewClient(nil)
 
     // list public repositories for org "github"
-    opt := &github.RepositoryListByOrgOptions{Type: "public"}
-    repos, _, _ := client.Repositories.ListByOrg("github", opt)
+    //opt := &github.RepositoryListByOrgOptions{Type: "public"}
+    //repos, _, _ := client.Repositories.ListByOrg("github", opt)
 
-    fmt.Println("Hello from sub! Num repos: " + strconv.Itoa(len(repos)))
+    //fmt.Println("Hello from sub! Num repos: " + strconv.Itoa(len(repos)))
 
-    privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
-    if err != nil {
-        panic(err)
-    }
+    //privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
+    //if err != nil {
+   //     panic(err)
+   // }
 
-    publicKey := &privateKey.PublicKey
+   // publicKey := &privateKey.PublicKey
     encrypter, err := jose.NewEncrypter(jose.RSA_OAEP, jose.A128GCM, publicKey)
     if err != nil {
-        panic(err)
+       panic(err)
     }
 
     var plaintext = []byte("Lorem ipsum dolor sit amet")
